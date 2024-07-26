@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from '../utils/api';
+import axios from '../src/utils/api';
 
 function PropertyForm({ setProperties }) {
     const [formData, setFormData] = useState({

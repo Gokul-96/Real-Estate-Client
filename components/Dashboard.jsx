@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../utils/api';
+import axios from '../src/utils/api';
 import PropertyForm from './PropertyForm';
 import PropertyList from './PropertyList';
 
