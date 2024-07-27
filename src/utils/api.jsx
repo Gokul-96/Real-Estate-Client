@@ -2,9 +2,10 @@ import axios from 'axios';
 
 // Create axios instance
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:3001/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001',
+  
 });
-
+console.log('API URL:', import.meta.env.VITE_API_URL);
 // Add a request interceptor to include the token in headers
 api.interceptors.request.use(
   (config) => {

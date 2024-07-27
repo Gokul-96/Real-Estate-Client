@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 
 function Register() {
@@ -10,7 +10,11 @@ function Register() {
 
     const { name, email, password } = formData;
 
-    const handleChange = (e) => {
+
+
+
+    //...formData ensures all other fields unchanged
+        const handleChange = (e) => {
         //e.g:  setFormData({
         //     ...formData,
         //     username: 'Gokul'
@@ -20,25 +24,16 @@ function Register() {
 
     
     
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await fetch('/agents/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
       
-          if (!response.ok) {
-            throw new Error('Network response error');
-          }
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+          const response = await axios.post('/api/agentRoutes/register', formData);
           alert('Registration successful');
-        } catch (error) {
+      } catch (error) {
           alert('Registration failed');
-        }
-      };
+      }
+  };
   return (
     <div>
         <h2>Register</h2>
@@ -50,13 +45,7 @@ function Register() {
                 <button type="submit">Register</button>
             </form>
         </div>
-    
-    
-    
-    
-    
-    
-    </div>
+     </div>
   )
 }
 

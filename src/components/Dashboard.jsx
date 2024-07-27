@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../src/utils/api';
+import api from '../utils/api';
 import PropertyForm from './PropertyForm';
 import PropertyList from './PropertyList';
 
@@ -15,7 +15,7 @@ function Dashboard() {
         },
       };
       try {
-        const response = await axios.get('/properties', config);
+        const response = await api.get('/properties', config);
         setProperties(response.data);
       } catch (error) {
         console.error('Error fetching properties', error);

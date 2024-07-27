@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from '../src/utils/api';
+import api from '../utils/api';
 
 function PropertyList({ properties, setProperties }) {
   const handleDelete = async (id) => {
@@ -10,7 +10,7 @@ function PropertyList({ properties, setProperties }) {
       },
     };
     try {
-      await axios.delete(`/properties/${id}`, config);
+      await api.delete(`/properties/${id}`, config);
       setProperties((prevProperties) =>
         prevProperties.filter((property) => property._id !== id)
       );

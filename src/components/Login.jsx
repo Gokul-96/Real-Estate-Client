@@ -20,33 +20,26 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/agents/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      
+      const response = await axios.post('/agentRoutes/login', formData);
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      localStorage.setItem('token', data.token);
+      // If request is successful store the token and navigate to the dashboard
+      localStorage.setItem('token', response.data.token);
       alert('Login successful');
-      navigate('/dashboard'); 
+      navigate('/dashboard');
     } catch (error) {
       alert('Login failed');
     }
   };
 
   return (
+    <div>Login
     <form onSubmit={handleSubmit}>
       <input type="email" name="email" value={email} onChange={handleChange} placeholder="Email" required />
       <input type="password" name="password" value={password} onChange={handleChange} placeholder="Password" required />
       <button type="submit">Login</button>
     </form>
+    </div>
   );
 }
 

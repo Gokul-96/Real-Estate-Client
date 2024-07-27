@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from '../src/utils/api';
+import api from '../utils/api';
 
 function PropertyForm({ setProperties }) {
     const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function PropertyForm({ setProperties }) {
         },
       };
       try {
-        const response = await axios.post('/properties', formData, config);
+        const response = await api.post('/properties', formData, config);
         setProperties((prevProperties) => [...prevProperties, response.data]);
         setFormData({
           type: '',
