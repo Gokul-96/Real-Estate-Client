@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault();
     try {
       
-      const response = await axios.post('/agentRoutes/login', formData);
+      const response = await axios.post('/api/agentRoutes/login', formData);
 
       // If request is successful store the token and navigate to the dashboard
       localStorage.setItem('token', response.data.token);
