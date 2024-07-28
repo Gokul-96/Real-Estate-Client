@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import api from '../utils/api';
 
 
 function Register() {
@@ -28,7 +30,7 @@ function Register() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const response = await axios.post('/api/agentRoutes/register', formData);
+          const response = await api.post('/api/agentRoutes/register', formData);
           alert('Registration successful');
       } catch (error) {
           alert('Registration failed');
