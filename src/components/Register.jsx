@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 import api from '../utils/api';
 
 
@@ -47,6 +47,9 @@ function Register() {
                 <input type='password' name='password' value={password} onChange={handleChange} placeholder="Password" required/>
                 <button type="submit">Register</button>
             </form>
+            <p>
+          Already registered? <Link to="/login">Login here</Link> 
+        </p>
         </div>
      </div>
   )
