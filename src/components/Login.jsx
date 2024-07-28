@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api';
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault();
     try {
       
-      const response = await axios.post('/api/agentRoutes/login', formData);
+      const response = await api.post('/api/agentRoutes/login', formData);
 
       // If request is successful store the token and navigate to the dashboard
       localStorage.setItem('token', response.data.token);
