@@ -10,7 +10,7 @@ function PropertyList({ properties, setProperties }) {
       },
     };
     try {
-      await api.delete(`/properties/${id}`, config);
+      await api.delete(`/api/properties/${id}`, config);
       setProperties((prevProperties) =>
         prevProperties.filter((property) => property._id !== id)
       );

@@ -24,7 +24,7 @@ function PropertyForm({ setProperties }) {
         },
       };
       try {
-        const response = await api.post('/properties', formData, config);
+        const response = await api.post('/api/properties/', formData, config);
         setProperties((prevProperties) => [...prevProperties, response.data]);
         setFormData({
           type: '',

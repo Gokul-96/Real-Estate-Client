@@ -15,7 +15,7 @@ function Dashboard() {
         },
       };
       try {
-        const response = await api.get('/properties', config);
+        const response = await api.get('/api/properties', config);
         setProperties(response.data);
       } catch (error) {
         console.error('Error fetching properties', error);
